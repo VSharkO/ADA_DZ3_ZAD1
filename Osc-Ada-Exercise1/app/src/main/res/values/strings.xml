@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Exercise 1</string>
+    <string name="newTask_SaveTask">Save task</string>
+    <string name="noTasksMassage">No tasks to show</string>
+    <string name="fillAllFieldsWarning">You need to fill all fields!</string>7
+    <string name="main_ShowTask_TextView">TASK TITLE: %s \t TASK SUMMARY: %s TASK IMPORTANCE: %d</string>
+
+</resources>
