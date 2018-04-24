@@ -3,40 +3,45 @@ package hr.ferit.bruno.exercise1.view;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import hr.ferit.bruno.exercise1.R;
 import hr.ferit.bruno.exercise1.TasksRepository;
 import hr.ferit.bruno.exercise1.model.Task;
 
 public class MainActivity extends AppCompatActivity {
 
-	TasksRepository mRepository;
 
-	EditText mSummary, mImportance,mTitle;
-	TextView displayTasksTextView;
-	StringBuilder stringBuilder;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		initializeUI();
-        displayTasksTextView.setText("");
 		mRepository = TasksRepository.getInstance();
+        stringBuilder = new StringBuilder();
+        ButterKnife.bind(this);
 	}
 
-	private void initializeUI() {
-		mTitle = findViewById(R.id.editText_main_title);
-		mSummary = findViewById(R.id.editText_main_summary);
-        mImportance = findViewById(R.id.editText_main_importance);
-        displayTasksTextView=findViewById(R.id.textView_main_noTasksMassage);
-        stringBuilder =new StringBuilder();
-	}
+    TasksRepository mRepository;
 
-	public void saveTask(View view){
+    @BindView(R.id.editText_main_summary)EditText mSummary;
+    @BindView(R.id.editText_main_importance)EditText mImportance;
+    @BindView(R.id.editText_main_title)EditText mTitle;
+    @BindView(R.id.textView_main_noTasksMassage) TextView displayTasksTextView;
+    @BindView(R.id.button_main_save) Button saveButton;
+    StringBuilder stringBuilder;
+
+
+    @OnClick(R.id.button_main_save)
+    public void saveTask(View view){
         Task task=null;
 		// ToDo: 	store the task
 		// Parse data from the widgets and store it in a task
@@ -44,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         String taskTitle=mTitle.getText().toString(),
                 taskSummary=mSummary.getText().toString();
 
-        if(!taskSummary.equals("")&&!taskTitle.equals("")&&!mImportance.getText().toString().equals("")) {
+        if(!taskSummary.isEmpty()&&!taskTitle.isEmpty()&&!mImportance.getText().toString().isEmpty()) {
 
             int taskImportance=Integer.parseInt(mImportance.getText().toString());
             task = new Task(taskImportance, taskTitle, taskSummary);
@@ -55,9 +60,9 @@ public class MainActivity extends AppCompatActivity {
         }
 		// ToDo:	clear the UI for the new task
 		// Clear all of the editText controls
-        mTitle.setText("");
-        mSummary.setText("");
-        mImportance.setText("");
+        mTitle.setText(null);
+        mSummary.setText(null);
+        mImportance.setText(null);
         if(mRepository.getTasks().size()==0){
             displayTasksTextView.setText(R.string.all_noTasksMassage);
         }

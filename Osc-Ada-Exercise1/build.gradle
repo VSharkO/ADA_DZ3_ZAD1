@@ -15,6 +15,10 @@ buildscript {
     }
 }
 
+ext{
+    butterknifeVersion = "8.8.1"
+}
+
 allprojects {
     repositories {
         google()
