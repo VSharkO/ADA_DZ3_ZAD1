@@ -7,9 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -18,17 +15,6 @@ import hr.ferit.bruno.exercise1.TasksRepository;
 import hr.ferit.bruno.exercise1.model.Task;
 
 public class MainActivity extends AppCompatActivity {
-
-
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		mRepository = TasksRepository.getInstance();
-        stringBuilder = new StringBuilder();
-        ButterKnife.bind(this);
-	}
 
     TasksRepository mRepository;
 
@@ -39,17 +25,28 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.button_main_save) Button saveButton;
     StringBuilder stringBuilder;
 
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		mRepository = TasksRepository.getInstance();
+        stringBuilder = new StringBuilder();
+        ButterKnife.bind(this);
+
+	}
 
     @OnClick(R.id.button_main_save)
     public void saveTask(View view){
-        Task task=null;
 		// ToDo: 	store the task
 		// Parse data from the widgets and store it in a task
 		// Store the task in the fake database using the repository
+        Task task=null;
         String taskTitle=mTitle.getText().toString(),
                 taskSummary=mSummary.getText().toString();
 
-        if(!taskSummary.isEmpty()&&!taskTitle.isEmpty()&&!mImportance.getText().toString().isEmpty()) {
+        if(!taskSummary.isEmpty()&&!taskTitle.isEmpty()&&
+                !mImportance.getText().toString().isEmpty()) {
 
             int taskImportance=Integer.parseInt(mImportance.getText().toString());
             task = new Task(taskImportance, taskTitle, taskSummary);
@@ -76,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
     public void displayTasks(Task instance){
         stringBuilder.append(getString(R.string.all_showTask,instance.getTitle(),
                 instance.getSummary(),instance.getImportance()));
-        stringBuilder.append("\n");
         displayTasksTextView.setText(stringBuilder.toString());
     }
 }

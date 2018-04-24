@@ -3,7 +3,7 @@
     <string name="all_saveTask">Save task</string>
     <string name="all_noTasksMassage">No tasks to show</string>
     <string name="all_emptyFieldWarning">You need to fill all fields!</string>7
-    <string name="all_showTask">TASK TITLE: %s \t TASK SUMMARY: %s TASK IMPORTANCE: %d</string>
+    <string name="all_showTask">TASK TITLE: %s \t TASK SUMMARY: %s TASK IMPORTANCE: %d \n</string>
     <string name="all_enterTaskTitle">Enter task title:</string>
     <string name="all_enterTaskSummary">Enter task summary:</string>
     <string name="all_enterTaskImportance">Enter task importance:</string>
