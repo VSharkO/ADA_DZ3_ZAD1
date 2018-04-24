@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_textViewText">20sp</dimen>
+    <dimen name="main_scrollViewMargin">30dp</dimen>
+</resources>

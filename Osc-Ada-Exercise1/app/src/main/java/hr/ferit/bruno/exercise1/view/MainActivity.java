@@ -29,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	private void initializeUI() {
-		mTitle = findViewById(R.id.edittext_newtask_title);
-		mSummary = findViewById(R.id.edittext_newtask_summary);
-        mImportance = findViewById(R.id.edittext_newtask_importance);
-        displayTasksTextView=findViewById(R.id.textview_newtask_display);
+		mTitle = findViewById(R.id.editText_main_title);
+		mSummary = findViewById(R.id.editText_main_summary);
+        mImportance = findViewById(R.id.editText_main_importance);
+        displayTasksTextView=findViewById(R.id.textView_main_noTasksMassage);
         stringBuilder =new StringBuilder();
 	}
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             mRepository.save(task);
 
         }else{
-            Toast.makeText(this,R.string.fillAllFieldsWarning,Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,R.string.all_emptyFieldWarning,Toast.LENGTH_SHORT).show();
         }
 		// ToDo:	clear the UI for the new task
 		// Clear all of the editText controls
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         mSummary.setText("");
         mImportance.setText("");
         if(mRepository.getTasks().size()==0){
-            displayTasksTextView.setText(R.string.noTasksMassage);
+            displayTasksTextView.setText(R.string.all_noTasksMassage);
         }
 		// ToDo: 	define a method
 		// Create a method for displaying the tasks in the textview as strings
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 	}
 
     public void displayTasks(Task instance){
-        stringBuilder.append(getString(R.string.main_ShowTask_TextView,instance.getTitle(),
+        stringBuilder.append(getString(R.string.all_showTask,instance.getTitle(),
                 instance.getSummary(),instance.getImportance()));
         stringBuilder.append("\n");
         displayTasksTextView.setText(stringBuilder.toString());

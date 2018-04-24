@@ -1,8 +1,13 @@
 <resources>
-    <string name="app_name">Exercise 1</string>
-    <string name="newTask_SaveTask">Save task</string>
-    <string name="noTasksMassage">No tasks to show</string>
-    <string name="fillAllFieldsWarning">You need to fill all fields!</string>7
-    <string name="main_ShowTask_TextView">TASK TITLE: %s \t TASK SUMMARY: %s TASK IMPORTANCE: %d</string>
-
+    <string name="all_appName">Exercise 1</string>
+    <string name="all_saveTask">Save task</string>
+    <string name="all_noTasksMassage">No tasks to show</string>
+    <string name="all_emptyFieldWarning">You need to fill all fields!</string>7
+    <string name="all_showTask">TASK TITLE: %s \t TASK SUMMARY: %s TASK IMPORTANCE: %d</string>
+    <string name="all_enterTaskTitle">Enter task title:</string>
+    <string name="all_enterTaskSummary">Enter task summary:</string>
+    <string name="all_enterTaskImportance">Enter task importance:</string>
+    <string name="all_taskTitleHint">Task name</string>
+    <string name="all_taskSummaryHint">Do OSC homework, all of the exercises</string>
+    <string name="all_taskImportanceHint">1</string>
 </resources>

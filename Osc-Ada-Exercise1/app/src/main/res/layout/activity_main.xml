@@ -4,77 +4,52 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <TextView
-        android:id="@+id/textview_newtask_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="50sp"
-        android:text="Enter task title:"/>
+        android:id="@+id/textView_main_enterTaskTitle"
+        style="@style/main_textView"
+        android:text="@string/all_enterTaskTitle"/>
     <EditText
-        android:id="@+id/edittext_newtask_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textview_newtask_title"
-        android:textColor="#FFF753"
-        android:textColorHint="#FFF"
-        android:background="#000000"
-        android:gravity="center"
+        android:id="@+id/editText_main_title"
+        style="@style/main_editText"
+        android:layout_below="@id/textView_main_enterTaskTitle"
         android:inputType="text"
-        android:hint="Finish homework"/>
+        android:hint="@string/all_taskTitleHint"/>
     <TextView
-        android:id="@+id/textview_newtask_summary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edittext_newtask_title"
-        android:textSize="50px"
-        android:text="Enter task summary:"/>
+        android:id="@+id/textView_main_enterTaskSummary"
+        style="@style/main_textView"
+        android:layout_below="@id/editText_main_title"
+
+        android:text="@string/all_enterTaskSummary"/>
     <EditText
-        android:id="@+id/edittext_newtask_summary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textview_newtask_summary"
-        android:textColor="#FFF753"
-        android:textColorHint="#fff"
-        android:background="#000000"
-        android:gravity="center"
+        android:id="@+id/editText_main_summary"
+        android:layout_below="@id/textView_main_enterTaskSummary"
+        style="@style/main_editText"
         android:inputType="text"
-        android:hint="Do OSC homework, all of the exercises"/>
+        android:hint="@string/all_taskSummaryHint"/>
     <TextView
-        android:id="@+id/textview_newtask_importance"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edittext_newtask_summary"
-        android:textSize="50px"
-        android:text="Enter task importance:"/>
+        android:id="@+id/textView_main_enterTaskImportance"
+        style="@style/main_textView"
+        android:layout_below="@id/editText_main_summary"
+        android:text="@string/all_enterTaskImportance"/>
     <EditText
-        android:id="@+id/edittext_newtask_importance"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textview_newtask_importance"
-        android:textColor="#FFF753"
-        android:textColorHint="#fff"
-        android:background="#000000"
-        android:gravity="center"
+        android:id="@+id/editText_main_importance"
+        android:layout_below="@id/textView_main_enterTaskImportance"
+        style="@style/main_editText"
         android:inputType="number"
-        android:hint="1"/>
+        android:hint="@string/all_taskImportanceHint"/>
     <Button
-        android:id="@+id/button_newtask_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edittext_newtask_importance"
-        android:layout_centerHorizontal="true"
-        android:text="@string/newTask_SaveTask"
-        android:textAllCaps="false"
+        android:id="@+id/button_main_save"
+        style="@style/main_button"
+        android:layout_below="@id/editText_main_importance"
+        android:text="@string/all_saveTask"
         android:onClick="saveTask"/>
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="30dp"
-        android:layout_below="@id/button_newtask_save">
+        style="@style/main_scrollView"
+        android:layout_below="@id/button_main_save">
         <TextView
-            android:id="@+id/textview_newtask_display"
+            android:id="@+id/textView_main_noTasksMassage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="No tasks to show"/>
+            android:text="@string/all_noTasksMassage"/>
     </ScrollView>
 </RelativeLayout>
